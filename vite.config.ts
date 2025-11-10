@@ -14,7 +14,7 @@ import { restart } from './plugins/restart';
 import { restartEnvFileChange } from './plugins/restartEnvFileChange';
 
 export default defineConfig({
-  base: './',
+  base: '',
   // Keep them available via import.meta.env.NEXT_PUBLIC_*
   envPrefix: 'NEXT_PUBLIC_',
   optimizeDeps: {
@@ -67,6 +67,9 @@ export default defineConfig({
     aliases(),
     layoutWrapperPlugin(),
   ],
+  build: {
+    outDir: 'dist', // تأكد إن الـ output بيطلع هنا
+  },
   resolve: {
     alias: {
       lodash: 'lodash-es',
